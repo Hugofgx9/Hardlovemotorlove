@@ -2,7 +2,7 @@ body {
 	margin : 0px;
 }
 
-div {
+section {
 	background-color: black;
 	display: flex;
 	justify-content: center;
@@ -16,5 +16,6 @@ h1 {
 	color: white;
 	font-size: 8vw;
 	text-transform: uppercase;
+
 }
 
