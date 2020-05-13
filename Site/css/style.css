@@ -4,6 +4,7 @@
 /*Variables*/
 :root {
   --grey-color: #909090;
+  --columns: 4vw repeat(12, 1fr) 4vw;
 }
 
 
@@ -23,27 +24,49 @@ h1 {
 	text-transform: uppercase;
 }
 
-#accueil p {
+#accueil p, #contact h2 ~ p {
 	font-size: 2.32rem;
 	color: var(--grey-color);
 }
 
+/*Header*/
+
+header{
+	padding-top: 4vh;
+}
+
+li {
+	list-style: none;
+	margin-right: 4vw;
+	text-align: right;
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 1.3rem;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+	color: var(--grey-color);
+}
 
 
 
 /*Section accueil*/
 section#accueil {
 	display : grid;
-	height: 90vh;
-	grid-template-columns: repeat(14, 1fr);
-	grid-template-rows: auto auto auto 4fr 1fr;
+	height: 87vh;
+	grid-template-columns: var(--columns);
+	grid-template-rows: auto auto auto auto 1fr;
 	grid-gap: 10px;
 }
 
 #accueil h1{
 	grid-column: 4/14;
 	margin: 0;
-	margin-top: 100px;
+	margin-top: 60px;
 	line-height: 3.2rem;
 }
 
@@ -54,22 +77,25 @@ section#accueil {
 }
 
 #accueil .reseaux{
-	grid-column: 4/9;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	grid-column: 4/7;
 	margin-bottom: 10px;
-	margin-top: -15px;
+	margin-top: -8px;
 }
 
 #accueil .illustration{
 	grid-column:3/15;
+	height: 35vh;
+	overflow: hidden;
 	background-color: white;
+}
+
+#accueil .illustration img {
+	position: relative;
+	top: -400px;
 }
 
 #accueil > a{
 	grid-column: 2/14;
-	fill: var(--grey-color);
 	height: 10vh;
 	width: auto;
 	display: block;
@@ -79,31 +105,204 @@ section#accueil {
 }
 
 .icone_res{
-	width:50px;
+	width: 33px;
+	margin-right: 5px;
+}
+
+/*Section news*/
+section#last_news{
+	display: none;
 }
 
 
 /*Section à propos*/
 section#contact{
 	display : grid;
-	height: 90vh;
-	grid-template-columns: repeat(14, 1fr);
-	grid-template-rows: auto auto auto 4fr 1fr;
+	height: 100vh;
+	grid-template-columns: var(--columns);
+	grid-template-rows: 50px 30px auto auto auto;
 	grid-gap: 10px;
-
-}
-
-#contact + div {
-	display: contents;
 }
 
 #contact h2{
-	grid-column: 2/6;
-	font-size: 3.5rem;
+	grid-column: 2/14;
+	margin: 0;
+	font-size: 2.5rem;
 	line-height: 3.2rem;
 	text-transform: uppercase;
 }
 
+#contact h2 ~ p {
+	grid-column: 2/14;
+	margin: 0;
+	margin-top: -20px;
+	font-size: 1.5rem;
+
+}
+
+#contact img {
+	grid-column: 2/14;
+	background-color: white;
+	height: 250px;
+}
+
+#contact > div:nth-of-type(1){
+	grid-column: 3/12;
+}
+
+#contact >div:nth-of-type(1) h3{
+	font-size: 1.6rem;
+	margin-top: 0px;
+}
+
+#contact >div:nth-of-type(1) p{
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+#contact > div:nth-of-type(2){
+	font-family: 'IBM Plex Sans', sans-serif;
+/*	height: 100px;*/
+	margin: 0;
+	grid-column: 3/11;
+	margin-bottom: 30px;
+	margin-top: 5px;
+}
+
+#contact > div:nth-of-type(2) > span:nth-of-type(3){
+	margin-top: 30px;
+	padding-top: 20px;
+}
+
+#contact >div:nth-of-type(2) > span:nth-of-type(2n){
+	color: var(--grey-color);
+}
+
+/*Footer*/
+footer{
+	display: grid;
+	grid-template-columns: var(--columns);
+	grid-template-rows: repeat(2,70px);
+	grid-gap: 10px;
+}
+
+footer .reseaux{
+	grid-column: 3/6;
+	grid-row: 1;
+	align-self: center;
+}
+
+footer div:nth-of-type(2){
+	grid-column: 10/14;
+	grid-row: 1;
+}
+
+footer > p{
+	grid-row: 2;
+	grid-column: 2/14;
+	font-size: 0.8rem;
+	color: var(--grey-color);
+	justify-self: center;
+	align-self: center;
+	font-family: 'IBM Plex Sans', sans-serif;
+}
+
+footer div:nth-of-type(2) p:nth-of-type(1){
+	margin: 0;
+	font-size: 1.5rem;
+	line-height: 1.4rem;
+	color: var(--grey-color);
+
+}
+
+footer div:nth-of-type(2) p:nth-of-type(2){
+	margin: 0;
+	margin-top: 2px;
+	font-size: 2.5rem;
+	line-height: 2.4rem;
+	text-transform: uppercase;
+}
+
+/*Redimensionnement modbiles*/
+@media  (max-width: 768px){
+
+	body{
+		font-size: 70%;
+	}
+
+	.mobile-hide{
+		display:none;
+	}
+
+	/*Section accueil*/
+	#accueil h1{
+		grid-column: 2/14;
+		margin-top: 20px;
+		font-size: 7vh;
+		line-height: 6.3vh;
+	}
+
+	#accueil p{
+		grid-column: 2/14;
+		font-size: 3.5vh;
+		margin-top: 0px;
+	}
+
+	#accueil .reseaux{
+		margin-top: 3px;
+		grid-column: 2/14;
+		margin-bottom: 5vh;
+	}
+
+	.icone_res{
+		margin-right: 2vw;
+
+	}
+
+	#accueil > a {
+		margin-top: 6vh;
+	}
+
+
+	#accueil > a img{
+		height: 8vh;
+	}
+
+	/*Section à propos*/
+	section#contact{
+		height: 70vh;
+		grid-template-rows: 45vh 20vh;
+		font-size:2.5vh;
+	}
+
+	#contact > div:nth-of-type(1), #contact > div:nth-of-type(2){
+	grid-column: 2/14;
+	}
+
+	/*Section footer*/
+	footer{
+		grid-row: 3;
+	}
+
+	footer .reseaux{
+		grid-column: 2/14;
+		grid-row: 1;
+		align-self: center;
+	}
+
+	footer div:nth-of-type(2){
+		grid-column: 2/14;
+		grid-row: 2;
+	}
+
+	footer div:nth-of-type(2) p:nth-of-type(2){
+		font-size: 5vh;
+	}
+
+	footer > p{
+		grid-column: 2/14;
+		grid-row: 3;
+	}
+}
 
 
 
